@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body, #root { height: 100%; }
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: #07070f;
+    color: #f0f0ff;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #1e1e38; border-radius: 2px; }
+  input, textarea, select { font-family: inherit; }
+  input[type=color] { cursor: pointer; }
+}
+
+@layer utilities {
+  .font-display { font-family: 'Syne', sans-serif; }
+  .font-mono    { font-family: 'JetBrains Mono', monospace; }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #8b84ff, #ff6584);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-acc { box-shadow: 0 0 14px rgba(108,99,255,0.35); }
+
+  .topbar-btn {
+    @apply h-8 px-3 border border-white/[0.07] bg-transparent text-t2 rounded-lg text-xs font-semibold cursor-pointer transition-all flex items-center gap-1.5;
+  }
+  .topbar-btn:hover { @apply bg-bg4 text-t1 border-white/[0.14]; }
+  .glow-ok  { box-shadow: 0 0 10px rgba(45,212,163,0.35); }
+
+  .border-acc { border-color: #6c63ff; }
+  .bg-overlay { background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); }
+}
+
+/* Canvas animations */
+@keyframes fcp  { 0%{width:18%} 50%{width:72%} 100%{width:18%} }
+@keyframes spin  { to { transform: rotate(360deg); } }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.45} }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+@keyframes glow  { 0%,100%{text-shadow:0 0 8px currentColor} 50%{text-shadow:0 0 22px currentColor,0 0 40px currentColor} }
+
+.anim-pulse { animation: pulse 2s infinite; }
+.anim-float { animation: float 3s ease infinite; }
+.anim-glow  { animation: glow 2s ease infinite; }
+.anim-spin  { animation: spin .8s linear infinite; }

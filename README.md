@@ -1,45 +1,28 @@
-# FiveM Custom Loading Screen
+# ScreenForge
 
-A customizable loading screen for your FiveM server.
+Visual FiveM loading screen builder with user accounts, project saving, and public gallery.
 
-## Installation
+## Quick Start
 
-1. Download all the files to your server's resource folder
-2. Add the following to your `server.cfg`:
+**Windows:** Double-click `START.bat`
+
+**Linux/Mac:**
+```bash
+cd server && npm install && node index.js
 ```
-ensure loading-screen
-```
 
-## Customization
+Open **http://localhost:3002**
 
-### Basic Customization
+The server auto-builds the frontend on first run — no separate steps needed.
 
-1. Open `script.js` and modify the `config` object at the top:
-   - `serverName`: Your server's name
-   - `serverDescription`: A welcome message or server description
-   - `discordLink`: Your Discord server invite link
-   - `websiteLink`: Your server's website URL
-   - `backgroundImage`: Path to your background image
-   - `rules`: Array of server rules
+## Setup
 
-### Advanced Customization
+1. Create a MySQL database and run `server/schema.sql`
+2. Copy `server/.env.example` to `server/.env` and fill in your DB credentials
+3. Run `START.bat` (or `node index.js` in the server folder)
 
-1. Modify `styles.css` to change colors, fonts, and layout
-2. Edit `index.html` to add or remove sections
-3. Update `script.js` to add new features or modify loading behavior
+## Stack
 
-## Features
-
-- Customizable server information
-- Loading progress bar
-- Server rules display
-- Social media links
-- Responsive design
-- Smooth animations
-- Easy to customize
-
-## Notes
-
-- Place your background image in the same directory and name it `background.jpg`
-- Make sure all links in the config are valid
-- Test the loading screen locally before deploying to your server
+- **Backend:** Node.js + Express + MySQL
+- **Frontend:** React + Vite + Tailwind
+- **Auth:** Email/password + JWT
